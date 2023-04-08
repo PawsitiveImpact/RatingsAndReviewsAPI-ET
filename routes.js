@@ -72,4 +72,18 @@ router.get('/reviews', async (req, res) => {
   }
 });
 
+router.get('/reviews/meta', async (res,req) => {
+  try {
+    const { product_id } = req.query;
+
+    if (!product_id) {
+      return res.status(400).send('Missing required parameter: product_id');
+    }
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('An error occurred while fetching review metadata');
+  }
+});
+
 module.exports = router;
