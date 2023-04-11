@@ -49,9 +49,15 @@ CREATE TABLE characteristic_reviews (
 COPY reviews (id, product_id, rating, date, summary, body, recommend, reported, reviewer_name, reviewer_email, response, helpfulness)
 FROM '/Users/ElliottTung/Documents/Hack_Reactor/RatingsAndReviewsAPI-ET/reviews.csv' DELIMITER ',' CSV HEADER;
 
+-- Reset the sequence for the reviews table
+SELECT setval('reviews_id_seq', (SELECT MAX(id) FROM reviews));
+
 -- Import data for the review_photos table
 COPY review_photos (id, review_id, url)
 FROM '/Users/ElliottTung/Documents/Hack_Reactor/RatingsAndReviewsAPI-ET/reviews_photos.csv' DELIMITER ',' CSV HEADER;
+
+-- Reset the sequence for the review_photos table
+SELECT setval('review_photos_id_seq', (SELECT MAX(id) FROM reviews));
 
 -- Import data for the characteristics table
 COPY characteristics (id, product_id, name)
@@ -60,3 +66,6 @@ FROM '/Users/ElliottTung/Documents/Hack_Reactor/RatingsAndReviewsAPI-ET/characte
 -- Import data for the characteristic_reviews table
 COPY characteristic_reviews (id, characteristic_id, review_id, value)
 FROM '/Users/ElliottTung/Documents/Hack_Reactor/RatingsAndReviewsAPI-ET/characteristic_reviews.csv' DELIMITER ',' CSV HEADER;
+
+-- Reset the sequence for the characteristic_reviews table
+SELECT setval('characteristic_reviews_id_seq', (SELECT MAX(id) FROM reviews));
