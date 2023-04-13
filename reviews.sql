@@ -45,6 +45,11 @@ CREATE TABLE characteristic_reviews (
     FOREIGN KEY (review_id) REFERENCES reviews(id) ON DELETE CASCADE
 );
 
+-- Create indexes
+CREATE INDEX idx_reviews_product_id_reported ON reviews(product_id, reported);
+CREATE INDEX idx_review_photos_review_id ON review_photos(review_id);
+CREATE INDEX idx_characteristics_product_id ON characteristics(product_id);
+
 -- Import data for the reviews table
 COPY reviews (id, product_id, rating, date, summary, body, recommend, reported, reviewer_name, reviewer_email, response, helpfulness)
 FROM '/Users/ElliottTung/Documents/Hack_Reactor/RatingsAndReviewsAPI-ET/reviews.csv' DELIMITER ',' CSV HEADER;
