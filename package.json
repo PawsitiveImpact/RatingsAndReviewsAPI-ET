@@ -4,5 +4,23 @@
     "express": "^4.18.2",
     "k6": "^0.0.0",
     "pg": "^8.10.0"
-  }
+  },
+  "name": "ratingsandreviewsapi-et",
+  "description": "System Design Capstone for Hack Reactor web app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PawsitiveImpact/RatingsAndReviewsAPI-ET.git"
+  },
+  "author": "ElliottTung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PawsitiveImpact/RatingsAndReviewsAPI-ET/issues"
+  },
+  "homepage": "https://github.com/PawsitiveImpact/RatingsAndReviewsAPI-ET#readme"
 }
